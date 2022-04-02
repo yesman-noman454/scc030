@@ -25,17 +25,41 @@ three=Image("00000:"
     "05550:"
     "0000")
 
-four=Image()
+four=Image("00000:"
+    "55555:"
+    "00000:"
+    "55555:"
+    "00000")
 
-five=Image()
+five=Image("05005:"
+    "50050:"
+    "00500:"
+    "05005:"
+    "50050")
 
-six=Image()
+six=Image("05050:"
+    "05050:"
+    "05050:"
+    "05050:"
+    "05050")
 
-seven=Image()
+seven=Image("05050:"
+    "05050:"
+    "50005:"
+    "05550:"
+    "00000")
 
-eight=Image()
+eight=Image("55505:"
+    "50005:"
+    "50505:"
+    "50505:"
+    "50505")
 
-nine=Image()
+nine=Image("50505:"
+    "05550:"
+    "55555:"
+    "05550:"
+    "50505")
 
 symbols=[one,two,three,four,five,six,seven,eight,nine]
 def cycle(a):
