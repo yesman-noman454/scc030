@@ -10,6 +10,7 @@ while a:
     transmit=radio.receive()
     if transmit=='1':
         a=False
+        display.show(Image.SKULL)
 
 b=random.randint(0,9)
 radio.send(str(b))
@@ -23,72 +24,72 @@ while a:
         n=1
 
 
-zero=Image("50505:"
-    "05050:"
-    "50505:"
-    "05050:"
-    "50505")
+zero=Image("90909:"
+    "09090:"
+    "90909:"
+    "09090:"
+    "90909")
 
 one=Image("00000:"
-    "05050:"
-    "05550:"
-    "00500:"
+    "09090:"
+    "09990:"
+    "00900:"
     "00000")
 
-two=Image("00500:"
-    "05050:"
-    "50005:"
-    "05050:"
-    "00500")
+two=Image("00900:"
+    "09090:"
+    "90009:"
+    "09090:"
+    "00900")
 
 three=Image("00000:"
-    "05550:"
-    "05050:"
-    "05550:"
+    "09990:"
+    "09090:"
+    "09990:"
     "0000")
 
 four=Image("00000:"
-    "55555:"
+    "99999:"
     "00000:"
-    "55555:"
+    "99999:"
     "00000")
 
-five=Image("05005:"
-    "50050:"
-    "00500:"
-    "05005:"
-    "50050")
+five=Image("09009:"
+    "90090:"
+    "00900:"
+    "09009:"
+    "90090")
 
-six=Image("05050:"
-    "05050:"
-    "05050:"
-    "05050:"
-    "05050")
+six=Image("09090:"
+    "09090:"
+    "09090:"
+    "09090:"
+    "09090")
 
-seven=Image("05050:"
-    "05050:"
-    "50005:"
-    "05550:"
+seven=Image("09090:"
+    "09090:"
+    "90009:"
+    "09990:"
     "00000")
 
-eight=Image("55505:"
-    "50005:"
-    "50505:"
-    "50505:"
-    "50505")
+eight=Image("99909:"
+    "90009:"
+    "90909:"
+    "90909:"
+    "90909")
 
-nine=Image("50505:"
-    "05550:"
-    "55555:"
-    "05550:"
-    "50505")
-
-
+nine=Image("90909:"
+    "09990:"
+    "99999:"
+    "09990:"
+    "90909")
 
 
-symbols=[one,two,three,four,five,six,seven,eight,nine]
+
+
+symbols=[zero,one,two,three,four,five,six,seven,eight,nine]
 def cycle(c,symbols):
-    for i in range(5):
+    for i in range(9):
         display.show(symbols,delay=100)
     display.show(symbols[c])
 
