@@ -1,30 +1,23 @@
 from microbit import *
 import radio
+import random
+import utime
 radio.on()
 radioChannel=0
-radio.config(channel=radioChannel)
+radio.config(group=radioChannel)
 a=True
 while a:
-    transmit=radio.recive()
+    transmit=radio.recive_bytes()
     if transmit!="None" and len(transmit)!=0:
         a=False
 
-##Needs to do the selection process for what output
-b=randint(0,9)
-radio.send_number(b)
-#a=True
-#while a:
-#    transmitOne=radio.recive()
-#    if transmitOne!="None" and len(transmitOne)!=0:
-#        a=False
-#        if transmitOne == 1:
-#            b=randint(0,9)
-#            radio.send_number(b)
+b=random.randint(0,9)
+radio.send_bytes(b)
 
-radio.config(channel=10)
+radio.config(group=10)
 a=True
 while a:
-    transmitTwo=radio.recive()
+    transmitTwo=radio.recive_bytes()
     if transmitTwo!="None" and len(transmitTwo)!=0:
         a=False
         n=1
@@ -91,43 +84,9 @@ nine=Image("50505:"
     "50505")
 
 
-wLetter=Image("50005:"
-    "50005:"
-    "50005:"
-    "50505:"
-    "55055")
 
-iLetter=Image("55555:"
-    "00500:"
-    "00500:"
-    "00500:"
-    "55555")
-
-nLetter=Image("50005:"
-    "55005:"
-    "50505:"
-    "50055:"
-    "50005")
-
-bLetter=Image("55550:"
-    "50005:"
-    "55555:"
-    "50005:"
-    "55550")
-gLetter=Image("55555:"
-    "50000:"
-    "50555:"
-    "50005:"
-    "55555")
 
 symbols=[one,two,three,four,five,six,seven,eight,nine]
-
-win=[wLetter,iLetter,gLetter]
-
-big=[bLetter,iLetter,gLetter]
-
-bigwin[big[radioChannel],win[radioChannel]]
-
 def cycle(c,symbols):
     for i in range(5):
         display.show(symbols,delay=100)
@@ -136,9 +95,9 @@ def cycle(c,symbols):
 if n==1:
     cycle(b,symbols)
 
-control.wait_micros(4000)
+utime.sleep(4)
 
-if transmitTwo==2:
-    display.show(win[radioChannel])
-elif transmitTwo==3:
-    display.show(bigwin,delay=100)
+if transmitTwo=='2':
+    display.scroll('win')
+elif transmitTwo=='3':
+    display.scroll('big win')

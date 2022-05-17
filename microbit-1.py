@@ -4,8 +4,8 @@ radio.on()
 def on_button_pressed_a():
     each=[]
     for i in range(0,2):
-        radio.config(channel=i)
-        radio.send_number(1)
+        radio.config(group=i)
+        radio.send_bytes(1)
         a=True
         while a:
             transmit=radio.recive()
@@ -13,15 +13,16 @@ def on_button_pressed_a():
                 a=False
                 each.append(transmit)
                 transmit=''
-    radio.config(channel=10)
+    radio.config(group=10)
     if each[0]==each[1]==each[2]:
-        radio.send_number(3)
+        radio.send_bytes(3)
     elif each[0]==each[1] or each[0]=each[2] or each[1]==each[2]:
-        radio.send_number(2)
+        radio.send_bytes(2)
     else:
-        radio.send_number(1)
-    
+        radio.send_bytes(1)
 
 
 
-input.on_button_pressed_a(Button.A,on_button_pressed_a)
+while True:
+    if microbit.button_a.is_pressed():
+        on_button_pressed_a()
