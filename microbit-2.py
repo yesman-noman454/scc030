@@ -100,5 +100,11 @@ utime.sleep(4)
 
 if transmitTwo=='2':
     display.scroll('win')
+    utime.sleep(4)
+    machine.reset()
 elif transmitTwo=='3':
     display.scroll('big win')
+    utime.sleep(4)
+    machine.reset()
+else:
+    machine.reset()
