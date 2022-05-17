@@ -1,6 +1,34 @@
 from microbit import *
 import radio
-radio.config(channel=0)
+radio.on()
+radioChannel=0
+radio.config(channel=radioChannel)
+a=True
+while a:
+    transmit=radio.recive()
+    if transmit!="None" and len(transmit)!=0:
+        a=False
+
+##Needs to do the selection process for what output
+b=randint(0,9)
+radio.send_number(b)
+a=True
+while a:
+    transmitOne=radio.recive()
+    if transmit!="None" and len(transmit)!=0:
+        a=False
+        if transmit == 1:
+            b=randint(0,9)
+            radio.send_number(b)
+
+radio.config(channel=10)
+a=True
+while a:
+    transmitTwo=radio.recive()
+    if transmit!="None" and len(transmit)!=0:
+        a=False
+
+
 zero=Image("50505:"
     "05050:"
     "50505:"
@@ -61,13 +89,44 @@ nine=Image("50505:"
     "05550:"
     "50505")
 
+
+wLetter=Image("50005:"
+    "50005:"
+    "50005:"
+    "50505:"
+    "55055")
+
+iLetter=Image("55555:"
+    "00500:"
+    "00500:"
+    "00500:"
+    "55555")
+
+nLetter=Image("50005:"
+    "55005:"
+    "50505:"
+    "50055:"
+    "50005")
+
+bLetter=Image("55550:"
+    "50005:"
+    "55555:"
+    "50005:"
+    "55550")
+gLetter=Image("55555:"
+    "50000:"
+    "50555:"
+    "50005:"
+    "55555")
+
 symbols=[one,two,three,four,five,six,seven,eight,nine]
-def cycle(a):
+win=[wLetter,iLetter,gLetter]
+big=[bLetter,iLetter,gLetter]
+bigwin[big[radioChannel],win[radioChannel]]
+def cycle(c,symbols):
     for i in range(5):
         display.show(symbols,delay=100)
-    display.show(symbols[a])
+    display.show(symbols[c])
 
-while True:
-    transmit=radio.recive()
-    if transmit!="None" and len(transmit)!=0:
-        cycle(transmit)
+if transmitTwo==1:
+    cycle(b,symbols)
