@@ -7,18 +7,18 @@ radioChannel=2
 radio.config(group=radioChannel)
 a=True
 while a:
-    transmit=radio.recive_bytes()
-    if transmit!="None" and len(transmit)!=0:
+    transmit=radio.receive()
+    if transmit=='1':
         a=False
 
 b=random.randint(0,9)
-radio.send_bytes(b)
+radio.send(str(b))
 
 radio.config(group=10)
 a=True
 while a:
-    transmitTwo=radio.recive_bytes()
-    if transmitTwo!="None" and len(transmitTwo)!=0:
+    transmitTwo=radio.receive()
+    if transmitTwo=='1'or transmitTwo=='2' or transmitTwo=='3':
         a=False
         n=1
 
