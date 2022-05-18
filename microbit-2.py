@@ -123,8 +123,8 @@ def cycle(c,symbols):
 if n==1:
     cycle(b,symbols)
 
-utime.sleep(4)
-
+utime.sleep(2)
+display.clear()
 if transmitTwo=='2':
     display.scroll('win')
     utime.sleep(2)
