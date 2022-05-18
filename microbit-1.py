@@ -25,10 +25,10 @@ def on_button_pressed_a():
     else:
         radio.send('1')
 
-
+times=9
 N=True
 while N:
-    if button_a.is_pressed() and times<=0:
+    if button_a.is_pressed() and times>=0:
         display.show(times)
         on_button_pressed_a()
         times-=1

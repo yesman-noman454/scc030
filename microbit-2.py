@@ -3,9 +3,10 @@ import radio
 import random
 import utime
 import os
+import machine
 
 if 'bitnum.txt' in os.listdir():
-    a=open('bitnum.txt',mode='r')
+    a=open('bitnum.txt','r')
     radioChannel=int(a.read())
     a.close()
 
@@ -16,13 +17,16 @@ else:
         if button_a.is_pressed() and button_b.is_pressed():
             radioChannel=2
             n=False
+            display.clear()
         elif button_a.is_pressed():
             radioChannel=0
+            display.clear()
             n=False
         elif button_b.is_pressed():
             radioChannel=1
+            display.clear()
             n=False
-    a=open('bitnum.txt',mode='w')
+    a=open('bitnum.txt','w')
     a.write(str(radioChannel))
     a.close()
 
@@ -36,7 +40,7 @@ while a:
 
 b=random.randint(0,9)
 radio.send(str(b))
-
+display.show(Image.SKULL)
 radio.config(group=10)
 a=True
 while a:
