@@ -2,14 +2,36 @@ from microbit import *
 import radio
 import random
 import utime
+import os
+
+if 'bitnum.txt' in os.listdir():
+    a=open('bitnum.txt',mode='r')
+    radioChannel=int(a.read())
+    a.close()
+
+else:
+    n=True
+    display.show(Image.HEART)
+    while n:
+        if button_a.is_pressed() and button_b.is_pressed():
+            radioChannel=2
+            n=False
+        elif button_a.is_pressed():
+            radioChannel=0
+            n=False
+        elif button_b.is_pressed():
+            radioChannel=1
+            n=False
+    a=open('bitnum.txt',mode='w')
+    a.write(str(radioChannel))
+    a.close()
+
 radio.on()
-radioChannel=0
 radio.config(group=radioChannel)
 a=True
 while a:
     transmit=radio.receive()
     if transmit=='1':
-        display.show(Image.HEART)
         a=False
 
 b=random.randint(0,9)
