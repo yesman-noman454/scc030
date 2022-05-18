@@ -44,10 +44,11 @@ display.show(Image.SKULL)
 radio.config(group=10)
 a=True
 while a:
+    display.clear()
     transmitTwo=radio.receive()
     if transmitTwo=='1'or transmitTwo=='2' or transmitTwo=='3':
         a=False
-        n=1
+        n=True
 
 
 zero=Image("90909:"
@@ -126,11 +127,11 @@ utime.sleep(4)
 
 if transmitTwo=='2':
     display.scroll('win')
-    utime.sleep(4)
+    utime.sleep(2)
     machine.reset()
 elif transmitTwo=='3':
     display.scroll('big win')
-    utime.sleep(4)
+    utime.sleep(2)
     machine.reset()
 else:
     machine.reset()
